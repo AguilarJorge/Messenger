@@ -1,0 +1,94 @@
+//Mixins media queries
+@mixin compu{
+  @media only screen and (max-width: 1024px){
+    @content;
+  }
+}
+@mixin tablet{
+  @media only screen and (max-width: 768px){
+    @content;
+  }
+}
+@mixin cel{
+  @media only screen and (max-width: 480px){
+    @content;
+  }
+}
+@mixin responsivo($medida){
+  @media only screen and (max-width: $medida){
+    @content;
+  }
+}
+
+//Mixin para controlar las propiedades del flex
+@mixin flex($direccion: column, $wrap: nowrap, $items: center, $content: center) {
+  display: flex;
+  flex-direction: $direccion;
+  flex-wrap: $wrap;
+  align-items: $items;
+  justify-content: $content;
+}
+//Mixin para establecer atributos del container
+@mixin container($ancho: 90%, $limitado: 'si') {
+  width: $ancho;
+  margin: 0 auto;
+  @if $limitado == 'si' {
+    max-width: 2400px;
+  }
+}
+//Mixin para controlar las propiedades de una imagen (background)
+@mixin imagen($url: '', $size: cover, $position: center, $repeat: no-repeat, $parallax: 'no') {
+  @if $url != '' {
+    background-image: url($url);
+  }
+  @if $parallax == 'parallax' {
+    background-attachment: fixed;
+    background-size: cover;
+  }@else{
+    background-size: $size;
+  }
+  background-position: $position;
+  background-repeat: $repeat;
+}
+//Mixin para recortar los renglones de texto
+@mixin ellipsis{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+//Mixin para recortar parrafos
+@mixin ellipsisParrafo($lineas: 3) {
+  -webkit-line-clamp: $lineas;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  text-align: left;
+}
+//Mixin para controlar la barra de scroll en elementos con overflow
+@mixin scroll($eje: y, $medida: 5px, $color: #dadada, $fondo: transparent){
+  @if $eje == y {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }@else if $eje == x{
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  &::-webkit-scrollbar{
+  	width: $medida;
+  	background-color: $fondo;
+  }
+  &::-webkit-scrollbar-thumb{
+  	background-color: $color;
+  }
+}
+//Mixin para transiciones
+@mixin transicion($tipo: ease, $duracion: .5s, $retardo: 0s, $propiedad: all){
+  @if $tipo == bezier  {
+    $tipo: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  transition-property: $propiedad;
+  transition-duration: $duracion;
+  transition-timing-function: $tipo;
+  transition-delay: $retardo;
+}

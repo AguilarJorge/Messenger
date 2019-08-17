@@ -3,11 +3,108 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>Sh</title>
+    <title>Xhat</title>
     <link rel="stylesheet" href="css/general.min.css">
   </head>
   <body>
-    <script type="text/javascript" src="js/vue.js"></script>
+    <main id="app">
+      <section id="menuApp">
+        <div class="container">
+          <div class="contenedorAvatar">
+            <div class="avatarPersonal"></div>
+          </div>
+          <div class="accionMenu chats">
+            <i data-feather="message-circle"></i>
+          </div>
+          <div class="accionMenu grupos">
+            <i data-feather="users"></i>
+          </div>
+          <div class="accionMenu favoritos">
+            <i data-feather="heart"></i>
+          </div>
+        </div>
+      </section>
+      <section id="detalleMenu">
+        <div class="container">
+          <div class="buscadorGeneral">
+            <p class="encabeazado">Buscar chat</p>
+            <div class="contenedorInput">
+              <input type="text" placeholder="Buscar...">
+              <div class="limpiarBusqueda">
+                <i data-feather="delete"></i>
+              </div>
+            </div>
+          </div>
+          <div class="contenidoTabs">
+            <div class="tab chats">
+              <div class="shat">
+                <div class="contenedor">
+                  <div class="imagen"></div>
+                  <div class="texto">
+                    <p class="timestamp">Hoy a las 2:34pm</p>
+                    <p class="nombre">Mollie Austin</p>
+                    <p class="ultimoMsg">Vas a venir?</p>
+                  </div>
+                </div>
+              </div>
+              <div class="shat fav conectado">
+                <div class="contenedor">
+                  <div class="imagen"></div>
+                  <div class="texto">
+                    <p class="timestamp">Hoy a las 5:45pm</p>
+                    <p class="nombre">José Mecanico</p>
+                    <p class="ultimoMsg">Ya quedo el carro patron</p>
+                  </div>
+                </div>
+              </div>
+              <div class="shat grupo">
+                <div class="contenedor">
+                  <div class="imagen"></div>
+                  <div class="texto">
+                    <p class="timestamp">Hoy a las 7:12pm</p>
+                    <p class="nombre">Tia lencha</p>
+                    <p class="ultimoMsg">Hola mijo, como han estado, ya estas bien grandote me saludas a tus papis</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="infoPerfil">
+          <div class="regresar"><i class="icono" data-feather="arrow-left"></i></div>
+          <div class="avatar"></div>
+          <p class="nombre">Jorge Luis Aguilar Rodarte</p>
+          <p class="correo">jorgeluis_942009@hotmail.com</p>
+          <p class="fecha">Miembro desde: 30 - Agosto - 2019</p>
+          <p class="estado">Arbol que nace torcido, se lo lleva la corriente</p>
+        </div>
+      </section>
+      <section id="principal">
+        <div class="container">
+          <div class="header">
+            <div class="imgPerfil"></div>
+            <p class="nombre">Jorge Luis Aguilar Rodarte</p>
+            <div class="icono atach"><i data-feather="paperclip"></i></div>
+            <div class="icono menuShat"><i data-feather="more-vertical"></i></div>
+          </div>
+          <div class="contenedorMensajes">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="redactor">
+            <div class="icono emojis"><i data-feather="smile"></i></div>
+            <div class="icono gifs"><i data-feather="film"></i></div>
+            <div class="icono stickers"><i data-feather="file"></i></div>
+            <div class="contenedorEscribir">
+              <label class="escribir" contenteditable="true"></label>
+            </div>
+            <div class="icono imagen"><i data-feather="image"></i></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="text/javascript" src="librerias/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="librerias/feather.min.js"></script>
+    <script type="text/javascript" src="js/helpers.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>
