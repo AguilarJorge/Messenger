@@ -321,6 +321,68 @@ body{
         margin-top: auto;
         overflow-y: auto;
         overflow-x: hidden;
+        .mensaje{
+          @include flex(row, wrap, flex-end);
+          margin-top: 20px;
+          &.recibido{
+            .avatar{
+              margin-right: 10px;
+            }
+            .contenido{
+              margin-right: auto;
+              border-bottom-left-radius: 0;
+              background-color: $blanco;
+            }
+          }
+          &.enviado{
+            flex-direction: row-reverse;
+            text-align: right;
+            .avatar{
+              margin-left: 10px;
+            }
+            .contenido{
+              margin-left: auto;
+              border-bottom-right-radius: 0;
+              background-color: $secundario;
+              color: $blanco;
+            }
+          }
+          .avatar{
+            @include imagen('../img/avatar.jpg');
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border-radius: 50%;
+            border: 3px solid #6c89f4;
+          }
+          .contenido{
+            max-width: calc(100% - 60px);
+            padding: 5px 10px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px 0 rgba($negro,.1);
+            &.stk{
+              @include imagen('../img/sticker.png', contain);
+              width: 100px;
+              height: 100px;
+              padding: 0;
+              background-color: transparent;
+              box-shadow: none;
+            }
+            img{
+              max-width: 400px;
+              max-height: 400px;
+              border-radius: 10px;
+            }
+          }
+          .datos{
+            width: 100%;
+            margin-top: 5px;
+            font-size: 12px;
+            span{
+              margin-right: 5px;
+            }
+          }
+        }
       }
       .redactor{
         @include flex(row, $items: flex-end);
