@@ -21,12 +21,13 @@
 }
 
 //Mixin para controlar las propiedades del flex
-@mixin flex($direccion: column, $wrap: nowrap, $items: center, $content: center) {
+@mixin flex($direccion: column, $wrap: nowrap, $items: center, $content: center, $acontent: center) {
   display: flex;
   flex-direction: $direccion;
   flex-wrap: $wrap;
   align-items: $items;
   justify-content: $content;
+  align-content: $acontent;
 }
 //Mixin para establecer atributos del container
 @mixin container($ancho: 90%, $limitado: 'si') {

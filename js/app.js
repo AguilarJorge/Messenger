@@ -1,6 +1,46 @@
 $(function(){
+  $.ajax({
+    type: 'POST',
+    url: "chatController.php",
+    dataType: 'json',
+    data: {
+      funcion: 'login',
+      correo: 'jorgeluis_942009@hotmail.com',
+      password: '12345',
+    }
+  }).done(function(r){
+    console.log(r);
+  }).fail(function(r){
+    console.log(r);
+  });
+
+
   //Init iconos
   feather.replace();
+  //--------------- Login ---------------
+  //Anumacion de inputs
+  $('.animForm .field.animField input').focusin(function(){
+    if ($(this).val().length <= 0) {
+      $(this).parent().addClass('anim');
+    }
+  })
+  $('.animForm .field.animField input').focusout(function(){
+    if ($(this).val().length <= 0) {
+      $(this).parent().removeClass('anim');
+    }
+  })
+  //Cambiar vista de formularios
+  $('.forms .form .transicion').click(function(){
+    var id = $(this).data('form');
+    $(this).parents('.form').removeClass('visible');
+    $('#'+id).addClass('visible');
+    if (id == 'resetPassword') {
+      $(this).parents('.forms').children('.imagen').addClass('morph');
+    }else {
+      $(this).parents('.forms').children('.imagen').removeClass('morph');
+    }
+  })
+
   //Informacion personal
   $('#menuApp .avatarPersonal').click(function(){
     var el = $(this);
