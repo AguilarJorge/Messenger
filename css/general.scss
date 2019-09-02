@@ -160,6 +160,9 @@ body{
             &:hover{
               background-color: rgba($secundario,.1);
             }
+            &.activo{
+              background-color: $gris;
+            }
             &.bye{
               height: 0;
               opacity: 0;
@@ -449,6 +452,7 @@ body{
       min-height: 400px;
       border-radius: 20px;
       background-color: $blanco;
+      box-shadow: 0 5px 10px 0 rgba($negro,.2);
       position: relative;
       z-index: 1;
       .imagen{
@@ -521,6 +525,14 @@ body{
             position: relative;
             overflow: hidden;
             transition: ease all .5s .7s;
+            &.error{
+              color: red;
+              border-color: red;
+              transition-delay: 0s;
+              label, .icono{
+                transition-delay: 0s;
+              }
+            }
             &.w2{
               width: 48%;
             }
@@ -614,7 +626,16 @@ body{
         background-color: $secundario;
         transform: translateY(50%);
         cursor: pointer;
+        &:hover{
+          .icono{
+            transform: scale(1.2);
+          }
+        }
+        &.disabled{
+          pointer-events: none;
+        }
         .icono{
+          @include transicion(bezier);
           width: 30px;
           height: 30px;
           color: $blanco;

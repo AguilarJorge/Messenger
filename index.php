@@ -36,89 +36,27 @@
             </div>
           </div>
           <div class="contenidoTabs">
-            <div class="tab chats">
-              <div class="shat">
-                <div class="contenedor">
-                  <div class="imagen"></div>
-                  <div class="texto">
-                    <p class="timestamp">Hoy a las 2:34pm</p>
-                    <p class="nombre">Mollie Austin</p>
-                    <p class="ultimoMsg">Vas a venir?</p>
-                  </div>
-                </div>
-              </div>
-              <div class="shat fav conectado">
-                <div class="contenedor">
-                  <div class="imagen"></div>
-                  <div class="texto">
-                    <p class="timestamp">Hoy a las 5:45pm</p>
-                    <p class="nombre">José Mecanico</p>
-                    <p class="ultimoMsg">Ya quedo el carro patron</p>
-                  </div>
-                </div>
-              </div>
-              <div class="shat grupo">
-                <div class="contenedor">
-                  <div class="imagen"></div>
-                  <div class="texto">
-                    <p class="timestamp">Hoy a las 7:12pm</p>
-                    <p class="nombre">Tia lencha</p>
-                    <p class="ultimoMsg">Hola mijo, como han estado, ya estas bien grandote me saludas a tus papis</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="tab chats"></div>
           </div>
         </div>
         <div class="infoPerfil">
           <div class="regresar"><i class="icono" data-feather="arrow-left"></i></div>
           <div class="avatar"></div>
-          <p class="nombre">Jorge Luis Aguilar Rodarte</p>
-          <p class="correo">jorgeluis_942009@hotmail.com</p>
-          <p class="fecha">Miembro desde: 30 - Agosto - 2019</p>
-          <p class="estado">Arbol que nace torcido, se lo lleva la corriente</p>
+          <p class="nombre"></p>
+          <p class="correo"></p>
+          <p class="fecha"></p>
+          <p class="estado"></p>
         </div>
       </section>
       <section id="principal">
         <div class="container">
           <div class="header">
             <div class="imgPerfil"></div>
-            <p class="nombre">Jorge Luis Aguilar Rodarte</p>
+            <p class="nombre"></p>
             <div class="icono atach"><i data-feather="paperclip"></i></div>
             <div class="icono menuShat"><i data-feather="more-vertical"></i></div>
           </div>
-          <div class="contenedorMensajes">
-            <div class="mensaje recibido">
-              <div class="avatar"></div>
-              <p class="contenido txt">Hola compa</p>
-              <p class="datos"><span class="nombre">Jorge Luis Aguilar Rodarte.</span><span class="datetime">23.Ago.2019. 16:35</span></p>
-            </div>
-            <div class="mensaje recibido">
-              <div class="avatar"></div>
-              <p class="contenido txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p class="datos"><span class="nombre">Jorge Luis Aguilar Rodarte.</span><span class="datetime">23.Ago.2019. 16:35</span></p>
-            </div>
-            <div class="mensaje enviado">
-              <div class="avatar"></div>
-              <p class="contenido txt">Hola compa</p>
-              <p class="datos"><span class="nombre">Jorge Luis Aguilar Rodarte.</span><span class="datetime">23.Ago.2019. 16:35</span></p>
-            </div>
-            <div class="mensaje recibido">
-              <div class="avatar"></div>
-              <p class="contenido img"><img src="img/avatar.jpg"></p>
-              <p class="datos"><span class="nombre">Jorge Luis Aguilar Rodarte.</span><span class="datetime">23.Ago.2019. 16:35</span></p>
-            </div>
-            <div class="mensaje enviado">
-              <div class="avatar"></div>
-              <p class="contenido img"><img src="img/paisaje.jpg"></p>
-              <p class="datos"><span class="nombre">Jorge Luis Aguilar Rodarte.</span><span class="datetime">23.Ago.2019. 16:35</span></p>
-            </div>
-            <div class="mensaje recibido">
-              <div class="avatar"></div>
-              <p class="contenido stk"></p>
-              <p class="datos"><span class="nombre">Jorge Luis Aguilar Rodarte.</span><span class="datetime">23.Ago.2019. 16:35</span></p>
-            </div>
-          </div>
+          <div class="contenedorMensajes"></div>
           <div class="redactor">
             <div class="icono emojis"><i data-feather="smile"></i></div>
             <div class="icono gifs"><i data-feather="film"></i></div>
@@ -215,6 +153,7 @@
       </div>
     </section>
     <script type="text/javascript" src="librerias/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="librerias/validaciones.min.js"></script>
     <script type="text/javascript" src="librerias/feather.min.js"></script>
     <script type="text/javascript" src="js/helpers.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
