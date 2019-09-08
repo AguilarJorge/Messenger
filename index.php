@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Xhat</title>
+    <link rel="stylesheet" href="librerias/iconSemantic/icon.min.css">
     <link rel="stylesheet" href="css/general.min.css">
   </head>
   <body>

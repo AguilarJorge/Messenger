@@ -445,7 +445,6 @@ body{
   .container{
     @include container;
     @include flex;
-    border: 1px solid red;
     .forms{
       @include flex($content: space-between);
       width: 400px;
@@ -463,11 +462,62 @@ body{
         background-color: $blanco;
         border: 5px solid $blanco;
         transform: translateY(-50%);
+        position: relative;
+        z-index: 1;
         transition: ease all 1s;
+        &:before{
+          @include flex;
+          font-family: Icons;
+          content: "\f03e";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          font-size: 25px;
+          color: $blanco;
+          border-radius: 50%;
+          opacity: 0;
+          background-color: rgba($negro,.5);
+          transition: ease all .5s;
+        }
         &.morph{
           background-image: url('../img/loginKey.png');
           margin-top: 50px;
           transform: translateY(0) rotateX(360deg);
+        }
+        &.subir{
+          background-image: url('../img/userAvatar.png');
+          &:before{
+            opacity: 1;
+            transition-delay: .3s;
+          }
+        }
+        &.cambio{
+          &:hover{
+            &:before{
+              opacity: 1;
+            }
+          }
+          &:before{
+            opacity: 0;
+            transition-delay: 0s;
+          }
+        }
+        #subirImg{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          margin: 0;
+          border: 0;
+          opacity: 0;
+          font-size: 0;
+          outline: none;
+          z-index: 1;
+          cursor: pointer;
         }
       }
       .contenedorForms{
@@ -563,6 +613,14 @@ body{
               background-color: transparent;
               position: relative;
               z-index: 1;
+            }
+            .prompt.label{
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              background-color: rgba(red,.5);
+              color: $blanco;
+              font-size: 10px;
             }
           }
           .msj{
@@ -664,6 +722,11 @@ body{
             animation-duration: 20s;
           }
         }
+      }
+    }
+    @include cel{
+      .forms{
+        width: 100%;
       }
     }
   }

@@ -1,4 +1,5 @@
 // $(function(){
+
   //Init iconos
   feather.replace();
   var usuario = null;
@@ -58,11 +59,96 @@
           $('#login').fadeOut();
         }
       }).fail(function(r){
-        console.log(r)
+        console.log(r.responseText)
       }).always(function(){
         $('#login .forms .boton').removeClass('disabled');
       })
     },
+  })
+  //Registro
+  $('#registroForm').form({
+    inline: true,
+    fields: {
+      nombres: {
+        identifier: 'nombres',
+        rules: [{
+          type   : 'empty',
+          prompt : 'Introduce tu(s) nombre(s)'
+        }]
+      },
+      apaterno: {
+        identifier: 'apaterno',
+        rules: [{
+          type   : 'empty',
+          prompt : 'Introduce tu apellido paterno'
+        }]
+      },
+      amaterno: {
+        identifier: 'amaterno',
+        rules: [{
+          type   : 'empty',
+          prompt : 'Introduce apellido materno'
+        }]
+      },
+      correo: {
+        identifier: 'regCorreo',
+        rules: [{
+          type   : 'empty',
+          prompt : 'Introduce un correo'
+        }]
+      },
+      password: {
+        identifier: 'regPass',
+        rules: [{
+          type   : 'empty',
+          prompt : 'Introduce tu contraseña'
+        }]
+      },
+      verifPass: {
+        identifier  : 'confregPass',
+        rules: [{
+          type   : 'empty',
+          prompt : 'Introduce tu contraseña'
+        }, {
+            type   : 'match[regPass]',
+            prompt : 'La contraseña no coincide'
+        }]
+      },
+    },
+    onSuccess: function(event, fields){
+      event.preventDefault();
+      var formData = new FormData();
+      var imagen = $('#login .forms .imagen #subirImg')[0].files[0];
+      formData.append('funcion', 'registro');
+      formData.append('nombres', fields.nombres);
+      formData.append('apaterno', fields.apaterno);
+      formData.append('amaterno', fields.amaterno);
+      formData.append('regCorreo', fields.regCorreo);
+      formData.append('regPass', fields.regPass);
+      formData.append('imagen', imagen);
+      $.ajax({
+        type: 'POST',
+        url: "chatController.php",
+        dataType: "json",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        beforeSend: function(){
+          $('#login .forms .boton').addClass('disabled');
+        }
+      }).done(function(r){
+        console.log(r);
+      }).fail(function(r){
+        console.log(r.responseText)
+      }).always(function(){
+        $('#login .forms .boton').removeClass('disabled');
+      })
+    },
+  })
+  //Subir imagen para registrar usuario
+  $(document).on('change', '#login .forms .imagen #subirImg', function(e){
+    cargarImagen(e);
   })
   //Enviar formulario
   $('#login .forms .boton').click(function(){
@@ -84,6 +170,12 @@
     var id = $(this).data('form');
     $(this).parents('.form').removeClass('visible');
     $('#'+id).addClass('visible');
+    if (id == 'registroForm') {
+      $(this).parents('.forms').children('.imagen').addClass('subir').append('<input id="subirImg" type="file" name="subirImg">');
+    }else {
+      $(this).parents('.forms').children('.imagen').removeClass('subir cambio');
+      $(this).parents('.forms').find('.imagen #subirImg').remove();
+    }
     if (id == 'resetPassword') {
       $(this).parents('.forms').children('.imagen').addClass('morph');
     }else {
@@ -189,4 +281,26 @@
       //Remover loader
     })
   })
+
+
+  //Funciones generales
+  function cargarImagen(e, blob){
+    if (blob) {
+      var file = blob;
+    }else {
+      var file = e.target.files[0];
+    }
+    imageType = /image.*/;
+    if (!file.type.match(imageType))
+    return;
+    var nombreImg = Date.now();
+    var extension = file.name.split('.');
+    extension = extension[extension.length - 1];
+    nombreImg = nombreImg+'.'+extension;
+    var reader = new FileReader();
+    reader.onloadend = function(){
+      $(e.target).parent().addClass('cambio').css('background-image', 'url('+reader.result+')');
+    }
+    reader.readAsDataURL(file);
+  }
 // })
